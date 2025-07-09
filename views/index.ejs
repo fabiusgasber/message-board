@@ -1,12 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Mini Messageboard</title>
+        <meta charset="utf-8">
+    </head>
     <body>
         <h1><%= title %></h1>
+        <a href="/new">Add message</a>
+            <ul>
             <% messages.forEach((message) => { %>
-                <ul>
-                    <li><%= message.text %></li>
-                    <li><%= message.user %></li>
-                    <li><%= message.added %></li>
-                </ul>
+                    <li>
+                        <p><%= message.user %>: <%= message.text %></p>
+                        <p><%= message.added.toLocaleString() %></p>
+                    </li>
            <% }) %>
+            </ul>
     </body>
 </html>

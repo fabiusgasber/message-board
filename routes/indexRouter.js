@@ -1,7 +1,9 @@
 const { Router } = require("express");
-const { getHomePage } = require("../controllers/indexController.js");
-const indexRouter = Router();
+const { getHomePage, getMessageForm, createMessage } = require("../controllers/indexController.js");
+const router = Router();
 
-indexRouter.get("/", getHomePage)
+router.get("/", getHomePage)
+router.get("/new", getMessageForm);
+router.post("/new", createMessage);
 
-module.exports = indexRouter;
+module.exports = router;
