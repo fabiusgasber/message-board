@@ -13,4 +13,14 @@ const createMessage = (req, res) => {
     res.redirect("/");
 };
 
-module.exports = { getHomePage, getMessageForm, createMessage };
+const getMsgDetails = (req, res) => {
+    const { index } = req.params;
+    const message = messages[Number(index)];
+    if(!message){
+        res.status(404).send("Message not found");
+        return;
+    }
+    res.render("message", { message: message });
+}
+
+module.exports = { getHomePage, getMessageForm, createMessage, getMsgDetails };
