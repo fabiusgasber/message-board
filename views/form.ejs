@@ -1,11 +1,16 @@
 <html>
+    <%- include("header") %>
     <body>
+        <a href="/">Go back to homepage</a>
         <form method="post" action="/new">
-            <h1>Add a new message</h1>
+            <div>
             <label for="user">Add your name:</label>
-            <input type="text" name="user" id="user" />
+            <input type="text" name="user" id="user" required />
+            </div>
+            <div>
             <label for="msg">Add your message:</label>
-            <input type="text" name="msg" id="msg"/>
+            <input type="text" name="msg" id="msg" required/>
+            </div>
             <button type="submit">Submit message</button>
         </form>
     </body>
