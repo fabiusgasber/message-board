@@ -3,4 +3,4 @@ require("dotenv").config();
 
 const connectionString = process.env.DATABASE_URL;
 
-module.exports = new Pool({ connectionString: connectionString });
+module.exports = new Pool({ connectionString: connectionString, ssl: { rejectUnauthorized: false }});
