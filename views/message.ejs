@@ -3,8 +3,10 @@
     <%- include("header") %>
 <body>
     <a href="/">Go back to homepage</a>
-    <p>Username: <%= message.user %> </p>
+    <% messages.forEach((message) => { %>
+    <p>Username: <%= message.username %> </p>
     <p>Text: <%= message.text %></p>
     <p>Written on: <%= message.added %></p>
+    <% }); %>
 </body>
 </html>

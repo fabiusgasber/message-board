@@ -1,26 +1,27 @@
-const messages = require("../models/messages.js");
+const db = require("../models/queries.js");
 
-const getHomePage = (req, res) => {
+const getHomePage = async (req, res) => {
+    const messages = await db.getAllMessages();
     res.render("index", { title: "Mini Messageboard", messages: messages });
 };
 
 const getMessageForm = (req, res) => {
     res.render("form");
-}
+};
 
-const createMessage = (req, res) => {
-    messages.push({ text: req.body.msg, user: req.body.user, added: new Date() });
+const createMessage = async (req, res) => {
+    await db.insertMessage({ text: req.body.msg, username: req.body.user, added: new Date() });
     res.redirect("/");
 };
 
-const getMsgDetails = (req, res) => {
+const getMessageDetails = async (req, res) => {
     const { index } = req.params;
-    const message = messages[Number(index)];
-    if(!message){
+    const messages = await db.findMessage(Number(index));
+    if(!messages && !messages.length){
         res.status(404).send("Message not found");
         return;
     }
-    res.render("message", { message: message });
+    res.render("message", { messages: messages });
 }
 
-module.exports = { getHomePage, getMessageForm, createMessage, getMsgDetails };
+module.exports = { getHomePage, getMessageForm, createMessage, getMessageDetails };

@@ -5,11 +5,11 @@
         <h1><%= title %></h1>
         <a href="/new">Add message</a>
             <ul>
-            <% messages.forEach((message, index) => { %>
+            <% messages.forEach((message) => { %>
                     <li>
-                        <p><%= message.user %>: <%= message.text %></p>
+                        <p><%= message.username %>: <%= message.text %></p>
                         <p><%= message.added.toLocaleString() %></p>
-                        <a href="/message/<%= index %>">More info</a>
+                        <a href="/message/<%= message.id %>">More info</a>
                     </li>
            <% }) %>
             </ul>
