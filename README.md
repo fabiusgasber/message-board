@@ -1,4 +1,4 @@
-[Live Version](https://main-daryn-fabius-ceec6c7f.koyeb.app)
+[Live Version](https://message-board-production-10a2.up.railway.app)
 
 # Mini Messageboard
 
